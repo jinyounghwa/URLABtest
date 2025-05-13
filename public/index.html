@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>웹사이트트 기능 비교 뷰어</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+  <header>
+    <div class="container">   
+      <h1>웹사이트 기능 비교 뷰어</h1>
+      <p>URL A/B 테스트 - 스크린샷 + 기능 매트릭스</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="input-section">
+      <h2>웹사이트 URL 입력</h2>
+      <form id="analyze-form">
+        <div class="form-group">
+          <label for="url-a">웹사이트 URL A:</label>
+          <input type="url" id="url-a" name="urlA" placeholder="https://example-a.com" required>
+        </div>
+        <div class="form-group">
+          <label for="url-b">웹사이트 URL B:</label>
+          <input type="url" id="url-b" name="urlB" placeholder="https://example-b.com" required>
+        </div>
+        <div class="button-group">
+          <button type="submit" class="btn-primary">
+            <i class="fas fa-search"></i> 분석 시작
+          </button>
+          <button type="button" id="reset-button" class="btn-secondary">
+            <i class="fas fa-redo"></i> 초기화
+          </button>
+        </div>
+      </form>
+    </section>
+
+    <section id="loading-section" class="hidden">
+      <div class="loader"></div>
+      <p>분석 중입니다. 잠시만 기다려주세요...</p>
+    </section>
+
+    <section id="result-section" class="hidden">
+      <h2>분석 결과</h2>
+      
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="home">홈페이지</button>
+        <button class="tab-btn" data-tab="search">검색 페이지</button>
+        <button class="tab-btn" data-tab="product">상품 페이지</button>
+      </div>
+      
+      <div class="tab-content active" id="home-tab">
+        <div class="screenshot-container">
+          <div class="screenshot-box">
+            <h3 id="site-a-name">웹사이트 URL A</h3>
+            <div class="screenshot">
+              <img id="site-a-home-img" src="" alt="URL A 홈페이지 스크린샷">
+            </div>
+          </div>
+          <div class="screenshot-box">
+            <h3 id="site-b-name">웹사이트 URL B</h3>
+            <div class="screenshot">
+              <img id="site-b-home-img" src="" alt="URL B 홈페이지 스크린샷">
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="tab-content" id="search-tab">
+        <div class="screenshot-container">
+          <div class="screenshot-box">
+            <h3 id="site-a-name-search">웹사이트 URL A</h3>
+            <div class="screenshot">
+              <img id="site-a-search-img" src="" alt="웹사이트 URL A 검색 페이지 스크린샷">
+            </div>
+          </div>
+          <div class="screenshot-box">
+            <h3 id="site-b-name-search">웹사이트 URL B</h3>
+            <div class="screenshot">
+              <img id="site-b-search-img" src="" alt="웹사이트 URL B 검색 페이지 스크린샷">
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="tab-content" id="product-tab">
+        <div class="screenshot-container">
+          <div class="screenshot-box">
+            <h3 id="site-a-name-product">웹사이트 URL A</h3>
+            <div class="screenshot">
+              <img id="site-a-product-img" src="" alt="웹사이트 URL A 상품 페이지 스크린샷">
+            </div>
+          </div>
+          <div class="screenshot-box">
+            <h3 id="site-b-name-product">웹사이트 URL B</h3>
+            <div class="screenshot">
+              <img id="site-b-product-img" src="" alt="웹사이트 URL B 상품 페이지 스크린샷">
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="feature-matrix">
+        <h3>기능 비교 매트릭스</h3>
+        <table id="feature-table">
+          <thead>
+            <tr>
+              <th>페이지</th>
+              <th>기능</th>
+              <th id="site-a-header">웹사이트 URL A</th>
+              <th id="site-b-header">웹사이트 URL B</th>
+            </tr>
+          </thead>
+          <tbody id="feature-table-body">
+            <!-- 여기에 기능 비교 행이 동적으로 추가됩니다 -->
+          </tbody>
+        </table>
+      </div>
+      
+      <div class="export-buttons">
+        <button id="export-csv" class="btn-secondary hidden">
+          <i class="fas fa-file-csv"></i> CSV 내보내기
+        </button>
+        <button id="export-pdf" class="btn-secondary">
+          <i class="fas fa-file-pdf"></i> PDF 내보내기
+        </button>
+        <button id="reset-button-result" class="btn-secondary">
+          <i class="fas fa-redo"></i> 초기화
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 URL A/B 테스트 도구</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
