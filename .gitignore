@@ -19,8 +19,8 @@ logs/
 .DS_Store
 Thumbs.db
 
-# 스크린샷 및 PDF 저장 디렉토리 (실제 사용 시 필요에 따라 주석 해제)
-# public/screenshots/
+# 스크린샷 및 PDF 저장 디렉토리
+public/screenshots/
 # public/pdfs/
 
 # 빌드 결과물
